@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/app-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/personalJS.iml" filepath="$PROJECT_DIR$/.idea/modules/personalJS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/personalJS-build.iml" filepath="$PROJECT_DIR$/.idea/modules/personalJS-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/personalJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/personalJVM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/personalJVM-build.iml" filepath="$PROJECT_DIR$/.idea/modules/personalJVM-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
+    </modules>
+  </component>
+</project>

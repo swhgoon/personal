@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="SBT" />
+    <profile name="SBT 1" modules="appJS,appJVM,root,personalJVM" />
+    <profile name="SBT 2" modules="personalJS">
+      <parameters>
+        <parameter value="-P:scalajs:mapSourceURI:file:/home/antonkulaga/denigma/personal/app/js/src/main/scala/-&gt;a5a9d226e3440ed28e5b/" />
+        <parameter value="-P:scalajs:mapSourceURI:file:/home/antonkulaga/denigma/personal/app/shared/src/main/scala/-&gt;94e1b544a11a1a82a828/" />
+      </parameters>
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.11.7/jars/scalajs-compiler_2.11.7-0.6.5.jar" />
+      </plugins>
+    </profile>
+  </component>
+</project>

@@ -1,0 +1,70 @@
+<section class="ui equal width grid">
+  <row class="ui equal width row">
+    <column class="column">
+      <p>You can edit the number of columns and rows to update cells chart.</p>
+      <div class="ui vertical blue menu">
+        <item class="item">
+          <label class="ui attached label">rows</label><input data-bind="rows">
+        </item>
+        <item class="item">
+          <label class="ui attached label">cols</label><input data-bind="cols">
+        </item>
+        <item class="item">
+          <label class="ui attached label">side</label><input data-bind="side">
+        </item>
+        <item class="item">
+          <label class="ui attached label">step</label><input data-bind="stepSize">
+        </item>
+      </div>
+      <button data-event-click="start">Start simulation</button>
+    </column>
+
+    <column class="ui green segment column" data-view = "selection">
+      <p data-bind="title"></p>
+      <div class="teal segment">
+        <label>Parameters:</label>
+        <div class="ui vertical blue menu">
+          <item class="item">
+            <label class="ui attached label">Notch production</label><input data-bind="notchProd">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Notch decay</label><input data-bind="notchDecay">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Delta production</label><input data-bind="deltaProd">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Delta decay</label><input data-bind="deltaDecay">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Glow decay</label><input data-bind="glowDecay">
+          </item>
+          <item class="item">
+            <label class="ui attached label">K (cis)</label><input data-bind="kCis">
+          </item>
+          <item class="item">
+            <label class="ui attached label">K (trans)</label><input data-bind="kTrans">
+          </item>
+        </div>
+      </div>
+      <div class="teal segment">
+        <label>Concentration:</label>
+        <div class="ui vertical blue menu">
+          <item class="item">
+            <label class="ui attached label">Notch</label><input data-bind="notch">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Delta</label><input data-bind="delta">
+          </item>
+          <item class="item">
+            <label class="ui attached label">Glowing</label><input data-bind="glow">
+          </item>
+        </div>
+      </div>
+      <button data-event-click="applyAll">Apply to selection</button>
+      <button data-event-click="applySelection">Apply to all</button>
+
+    </column>
+  </row>
+
+</section>
