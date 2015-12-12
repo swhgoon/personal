@@ -1,10 +1,8 @@
 @(name: String)
-<div  data-view="@name" class="ui positive message">
-  <svg data-bind-height="height" data-bind-width="width">
-    <svg data-template="true" data-bind-x="x" data-bind-y="y" data-event-click="selectClick">
-      <text font-size="8pt" data-bind-x="side" data-bind-y="vert"  stroke="green" data-bind="glow"></text>
-      <polygon class="hex" data-bind-points="points" data-bind-stroke="stroke" fill="green" stroke-width="3" fill-opacity="0.5">
-      </polygon>
-    </svg>
+<svg data-view="@name" data-bind-height="height" data-bind-width="width">
+  <svg data-template="true" data-bind-x="x" data-bind-y="y" data-event-click="selectClick">
+    <text font-size="5pt" x="5" data-bind-y="vert"  stroke="green" data-bind="values"></text>
+    <polygon class="hex" data-bind-points="points" data-bind-stroke="stroke" fill="green" stroke-width="3" fill-opacity="0.5">
+    </polygon>
   </svg>
-</div>
+</svg>

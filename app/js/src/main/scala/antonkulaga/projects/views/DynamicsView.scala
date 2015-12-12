@@ -12,9 +12,8 @@ class DynamicsView(val elem: Element) extends BindableView
 {
   self =>
 
-
    override lazy val injector = defaultInjector
      .register("notch-delta") { case (el, params) =>
-       new NotchDeltaView(el, side = Var(30), rows = Var(5), cols = Var(4), stepSize = Var(1)).withBinder(new CodeBinder(_))
+       new NotchDeltaView(el, side = Var(50), rows = Var(1), cols = Var(2), stepSize = Var(0.001)).withBinder(new CodeBinder(_))
      }
 }

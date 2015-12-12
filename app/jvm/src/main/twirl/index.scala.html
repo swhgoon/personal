@@ -5,13 +5,7 @@
     @html.runner()
   </head>
   <body>
-@*
-      @html.sidebar()
-      <div class="pusher"> <!--it will be pushed by a sidebar-->
-          @html.main(content)
-      </div>
-*@
-      @html.main(content)
-
+    @html.menu()
+    @html.main(content)
   </body>
 </html>

@@ -7,7 +7,10 @@ import rx.core.Var
 import scala.scalajs.js
 
 
-case class Dimensions(rows: Int, cols: Int, side: Int)
+case class Dimensions(rows: Int, cols: Int, side: Double){
+
+  lazy val vertical = Math.sqrt(Math.pow(side, 2) - Math.pow(side / 2, 2))
+}
 
 trait ArrayChart extends CollectionView {
 
@@ -18,13 +21,6 @@ trait ArrayChart extends CollectionView {
   val resize = dimensions.zip
 
   val items: Var[js.Array[js.Array[Item]]]
-
-  def neighbours(arr: js.Array[js.Array[Item]], r: Int, c: Int): js.Array[Item] = arr
-    .slice(r - 1, r + 1)
-    .slice(c - 1, c + 1)
-    .flatten
-    .filterNot(item => item == arr(r)(c))
-
 
   protected def makeRow(old: js.Array[js.Array[Item]], r: Int, cOld: Int, c: Int): js.Array[Item] = if (r >= old.length)
   {
@@ -58,7 +54,7 @@ trait ArrayChart extends CollectionView {
   {
     val row: js.Array[Item] = new js.Array(c)
     for(j <- 0 until c) {
-      val item = fun(r,j)
+      val item = fun(r, j)
       row(j) = item
       onInsert(item)
     }
@@ -76,6 +72,10 @@ trait ArrayChart extends CollectionView {
     //println(s"resizing started with ${oldValue} and ${newValue}")
     (oldValue, newValue) match
     {
+
+      case (oldOne, Dimensions(r, c, _)) if items.now.length == 0 =>
+        val arr = createArray2(r, c)(makeItem)
+        items.set(arr)
 
       case (Dimensions(0, 0, _), Dimensions(r, c, _)) =>
         val arr = createArray2(r, c)(makeItem)
@@ -114,9 +114,10 @@ trait ArrayChart extends CollectionView {
 
   override def subscribeUpdates(): Unit = {
     template.hide()
-    val d = dimensions.now
     resize.onChange("onResize", uniqueValue = true, skipInitial = true)(change => onResize(change._1, change._2))
-    val arr = createArray2(d.rows, d.cols)(makeItem)
-    items.set(arr)
+    println(s"RESEIZE = ${resize.now}")
+    onResize(resize.now._1, resize.now._2)
+    //val arr = createArray2(d.rows, d.cols)(makeItem)
+    //items.set(arr)
   }
 }

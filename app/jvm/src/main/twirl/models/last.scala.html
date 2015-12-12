@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+@()
+<div class="ui segment" data-view="last">
+  <h3 data-bind="title"></h3>
+  <div class="teal segment">
+    <label>Concentration:</label>
+    <table class="ui table">
+      <tr>
+        <th></th>
+        <th>Last selected</th>
+        <th>Neighbours</th>
+      </tr>
+      <tr>
+        <td>Notch</td>
+        <td data-bind="notch"></td>
+        <td data-bind="neighboursNotch"></td>
+      </tr>
+      <tr>
+        <td>Delta</td>
+        <td data-bind="delta"></td>
+        <td data-bind="neighboursDelta"></td>
+      </tr>
+      <tr>
+        <td>Notch-Delta(trans)</td>
+        <td data-bind="notchDeltaTrans"></td>
+        <td data-bind="neighboursNotchDeltaTrans"></td>
+      </tr>
+    </table>
+  </div>
+  <h3>Cell dynamics</h3>
+@*  @models.html.chart("IndividualChart")*@
+</div>

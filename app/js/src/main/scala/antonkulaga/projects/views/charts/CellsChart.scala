@@ -22,8 +22,8 @@ class SimpleCellsChart(val elem: Element, val dimensions: Rx[Dimensions]) extend
   }
 
   override def makeItem(r: Int, c: Int): Item = {
-    val s = dimensions().side
-    val vert = this.vertSide(s)
+    val dim = dimensions.now
+    val (s, vert) = (dim.side, dim.vertical)
     val xStart = s * ( if (isOdd(r)) 0.5 else 2.0 )
     Var(Cell(Point(xStart + s * 3 * c,  vert * (r +1) ), s))
   }
@@ -37,15 +37,13 @@ trait CellsChart extends ArrayChart
 
   override type ItemView <: CellView
 
-  val width: Rx[Double] = Var(800.0)
+  val width: Var[Double] = Var(800.0)
 
-  val height: Rx[Double] =Var(800.0)
+  val height: Var[Double] =Var(800.0)
 
   def isEven(v: Int): Boolean = v % 2 == 0
 
   def isOdd(v: Int): Boolean = v % 2 != 0
-
-  def vertSide(s: Double): Double =  Math.sqrt(Math.pow(s, 2) - Math.pow(s/2, 2))
 
   override protected def makeRow(old: js.Array[js.Array[Item]], r: Int, cOld: Int, c: Int): js.Array[Item] = if (r >= old.length)
   {
@@ -76,7 +74,11 @@ trait CellsChart extends ArrayChart
 
 }
 
-
+/**
+  * View class for the cell
+  * @param elem Element ( HTML or SVG or smth. else)
+  * @param cell cell reactive variable
+  */
 class CellView(val elem: Element, val cell: Rx[Cell]) extends BindableView {
 
   self =>

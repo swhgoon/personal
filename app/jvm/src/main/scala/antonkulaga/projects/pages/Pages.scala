@@ -19,6 +19,11 @@ class Pages extends Directives with PJax{
     }
   }
 
+  def page(html: Html): Route = pjax[Twirl](html, loadPage){ h=> c=>
+    val resp = HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`, h.body  ))
+    c.complete(resp)
+  }
+
   val loadPage: Html => Html = h => html.index(Some(h))
 
 
@@ -28,6 +33,14 @@ class Pages extends Directives with PJax{
         c.complete(resp)
       }(ctx)
     }
+
+  def menu = pathPrefix("pages"~ Slash){ctx =>
+    ctx.unmatchedPath.toString() match {
+      case "notch-delta"=> page(html.dynamics())(ctx)
+      case "pages/diff"=> page(html.statistics())(ctx)
+      case other => ctx.complete("other")
+    }
+  }
 
 
 

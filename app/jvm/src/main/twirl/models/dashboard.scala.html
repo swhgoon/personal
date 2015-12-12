@@ -16,10 +16,12 @@
           <label class="ui attached label">step</label><input data-bind="stepSize">
         </item>
       </div>
-      <button data-event-click="start">Start simulation</button>
+      <button data-event-click="start" data-bind="startCaption">Start simulation</button>
+      <button data-event-click="step">Make step</button>
     </column>
-
-    <column class="ui green segment column" data-view = "selection">
+    </row>
+    <row class="ui equal width row"  data-view = "selection">
+    <column class="ui segment column">
       <p data-bind="title"></p>
       <div class="teal segment">
         <label>Parameters:</label>
@@ -37,7 +39,7 @@
             <label class="ui attached label">Delta decay</label><input data-bind="deltaDecay">
           </item>
           <item class="item">
-            <label class="ui attached label">Glow decay</label><input data-bind="glowDecay">
+            <label class="ui attached label">Notch-Delta(trans) decay</label><input data-bind="notchDeltaTransDecay">
           </item>
           <item class="item">
             <label class="ui attached label">K (cis)</label><input data-bind="kCis">
@@ -47,8 +49,14 @@
           </item>
         </div>
       </div>
+      <button data-event-click="resetSelection" data-show-if="hasSelection">Clear selection</button>
+      <button data-event-click="applyAll">Apply to selection</button>
+      <button data-event-click="applySelection" data-show-if="hasSelection">Apply to all</button>
+
+    </column>
+      <column class="ui segment column">
       <div class="teal segment">
-        <label>Concentration:</label>
+        <label>Concentrations to apply:</label>
         <div class="ui vertical blue menu">
           <item class="item">
             <label class="ui attached label">Notch</label><input data-bind="notch">
@@ -57,14 +65,11 @@
             <label class="ui attached label">Delta</label><input data-bind="delta">
           </item>
           <item class="item">
-            <label class="ui attached label">Glowing</label><input data-bind="glow">
+            <label class="ui attached label">Noth-Delta(trans)</label><input data-bind="notchDeltaTrans">
           </item>
         </div>
       </div>
-      <button data-event-click="applyAll">Apply to selection</button>
-      <button data-event-click="applySelection">Apply to all</button>
-
-    </column>
-  </row>
+      </column>
+    </row>
 
 </section>
