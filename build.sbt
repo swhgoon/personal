@@ -32,6 +32,7 @@ lazy val noPublishSettings = Seq(
 lazy val commonSettings = Seq(
   scalaVersion := Versions.scala,
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
+  resolvers += "softprops-maven" at "http://dl.bintray.com/content/softprops/maven", // for odelay-core
   libraryDependencies ++= Dependencies.commonShared.value ++ Dependencies.testing.value,
   updateOptions := updateOptions.value.withCachedResolution(true) // to speed up dependency resolution
 )
